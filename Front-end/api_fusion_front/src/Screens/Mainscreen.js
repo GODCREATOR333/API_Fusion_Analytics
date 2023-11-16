@@ -1,17 +1,31 @@
-import React, { useState } from 'react'
-import "./mainscreenstyles.css"
+import React, { useState } from 'react';
+import Axios from 'axios';
+import "./mainscreenstyles.css";
 
 function Mainscreen() {
-
-    const [count, SetCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     const increment = () => {
-        SetCount(count + 1)
-    }
-    const decrement = () => {
-        SetCount(count - 1)
-    }
+        setCount(count + 1);
+    };
 
+    const decrement = () => {
+        setCount(count - 1);
+    };
+
+    const handlePostRequest = () => {
+        const postData = {
+            key1: count
+        };
+
+        Axios.put('your-api-endpoint', postData)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
 
     return (
         <div className='mainscreen'>
@@ -19,9 +33,10 @@ function Mainscreen() {
             <div className='buttons'>
                 <button className='plus_button' onClick={increment}>+</button>
                 <button className='minus_button' onClick={decrement}>-</button>
+                <button className='submit_button' onClick={handlePostRequest}>Submit</button>
             </div>
         </div>
-    )
+    );
 }
 
-export default Mainscreen
+export default Mainscreen;

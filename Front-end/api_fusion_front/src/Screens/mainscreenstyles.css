@@ -1,25 +1,43 @@
-.mainscreen{
-    position: relative;
-    margin-left:45%;
-    margin-top: 15%;
-}
-
-.buttons{
+.mainscreen {
+    background: transparent;
     display: flex;
-    gap :10px;
-    margin-left:-4% ;
-    margin-top:10% ;
-    
-}
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top:-50vh ;
+    color:azure;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
 
-.plus_button{
-    width: 100px;
+  .plus_button{
+    width: auto;
     padding: 10px 20px;
-    font-weight: bolder;
-}
+    margin:10px
+  }
 
-.minus_button{
-    width: 100px;
+  .minus_button{
+    width: auto;
     padding: 10px 20px;
-    font-weight: bolder;
-}
+    margin:10px
+  }
+
+  .submit_button{
+    width: auto;
+    padding: 10px 20px;
+    margin:10px
+  }
+  
+  /* Add media query for responsiveness */
+  @media (max-width: 600px) {
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
