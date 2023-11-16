@@ -1,0 +1,25 @@
+.mainscreen{
+    position: relative;
+    margin-left:45%;
+    margin-top: 15%;
+}
+
+.buttons{
+    display: flex;
+    gap :10px;
+    margin-left:-4% ;
+    margin-top:10% ;
+    
+}
+
+.plus_button{
+    width: 100px;
+    padding: 10px 20px;
+    font-weight: bolder;
+}
+
+.minus_button{
+    width: 100px;
+    padding: 10px 20px;
+    font-weight: bolder;
+}
