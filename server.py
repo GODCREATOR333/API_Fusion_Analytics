@@ -5,9 +5,14 @@ app = Flask(__name__)
 CORS(app)
 
 
+@app.route('/')
+def main():
+    return "go to /count to get count data"
+
+
 @app.route('/count')
 def count():
-    return {"counter": ["add", "subtract"]}
+    return {"counter": ["0"]}
 
 
 if __name__ == "__main__":
