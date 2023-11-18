@@ -18,8 +18,9 @@ function Mainscreen() {
             key1: count
         };
 
-        Axios.put('your-api-endpoint', postData)
+        Axios.post('http://127.0.0.1:5000/count', postData)
             .then(response => {
+                setData({ counter: [response.data.counter] });
                 console.log(response.data);
             })
             .catch(error => {
