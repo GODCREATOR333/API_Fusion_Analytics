@@ -3,7 +3,8 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, resources={
-     r"/count": {"origins": "http://localhost:3000"}, "/*": {"origins": "*"}})
+     r"/count": {"origins": "http://localhost:3000"}, "/*": {"origins": "*"}
+     })
 counter_value = 0
 
 

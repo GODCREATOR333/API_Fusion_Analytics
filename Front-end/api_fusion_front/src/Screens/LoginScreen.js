@@ -31,6 +31,7 @@ function LoginScreen() {
                     <button className='login_btn'>Login with Google <img className='google_icon' src='https://img.icons8.com/ios-filled/50/FFFFFF/google-logo.png'
                         alt='google_icon' /></button>
                     <button className='login_btn'>Sign Up</button>
+                    <img className='next_img' src='https://img.icons8.com/ios/50/FFFFFF/circled-chevron-right--v1.png' alt='next_img' />
                 </div>
             </div>
 
