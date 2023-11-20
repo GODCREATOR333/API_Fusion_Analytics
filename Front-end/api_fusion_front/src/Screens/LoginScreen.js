@@ -1,14 +1,10 @@
 import React from 'react'
 import "./loginscreenstyles.css"
-import { useTypewriter } from 'react-simple-typewriter';
+
+
 
 
 function LoginScreen() {
-
-    const [text] = useTypewriter({
-        words: [' call public Apis', ' compare data betweeb apis', ' get insights', ' or just have fun'],
-        loop: {},
-    });
 
 
     return (
@@ -16,20 +12,16 @@ function LoginScreen() {
 
             <div className='leftside'>
 
-
                 <div className='header'>
-                    <img width="64" height="64" src="" alt="logo" />
+                    <img className='logo' src="https://altcoinsbox.com/wp-content/uploads/2022/10/ethereum-logo-.webp" alt="logo" />
                     <h1>API_Fusion</h1>
                 </div>
 
-                <div className='hero_content' >
-                    <h2 className='h2'> What can you <span className='h2_child'> Do ? </span></h2>
-                    <h4>well, you can
-                        <span style={{ fontWeight: '400' }}>
-                            {text}
-                        </span>
-                    </h4>
+                <div className='main_hero'>
+
                 </div>
+
+
             </div>
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Mainscreen from './Screens/Mainscreen';
-import BackDrop from './Screens/Backdrop';
 import LoginScreen from './Screens/LoginScreen';
 
 function App() {
@@ -9,7 +9,12 @@ function App() {
 
   return (
     <div>
-      <LoginScreen />
+      <Router>
+        <Routes>
+          <Route path='/' element={<LoginScreen />} />
+          <Route path='/home' element={<Mainscreen />} />
+        </Routes>
+      </Router>
     </div>
   );
 

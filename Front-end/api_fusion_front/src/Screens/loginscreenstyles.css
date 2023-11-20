@@ -18,8 +18,23 @@ body {
     overflow: hidden;
 }
 
+.logo{
+    height: 100px;
+    width: 160px;
+    position: relative;
+    margin-top: 1%;
+}
+
+
 .leftside{
-    background-color: #3F0071;
+    background:linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url("https://wallpapers.com/images/hd/futuristic-world-in-pastel-japanese-aesthetic-z09l1l7vmv6z8le8.jpg")center no-repeat ;
+    background-size: cover;
     color: aliceblue;
     position: relative;
     width: 60%;
@@ -33,9 +48,10 @@ body {
 
 
 .header h1{
-    margin-top: 5%;
-    margin-left: 10%;
+    margin-top: 3%;
+    font-weight:800 ;
     font-size: xxx-large;
+    color: #F1EFEF;
 }
 
 
@@ -71,6 +87,27 @@ body {
     font-size: 16px;
     font-weight: 600;
     gap: 1%;
-    background-color: blue;
+    background-color: #f15454;
     color: aliceblue;
+    cursor: pointer;
+    transition: transform 100ms ease-in;
+    border-radius:10px ;
+    border: none;
+}
+
+.login_btn:hover{
+    transform: scale(1.01);
+    background-color: #f56868;
+}
+
+.hero_img{
+    position: relative;
+    margin-left: 10%;
+    height: 40vh;
+}
+
+.hero_img2{
+    position: relative;
+    margin-left: 10%;
+    height: 40vh;
 }
