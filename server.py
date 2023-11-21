@@ -22,5 +22,10 @@ def count():
     return {"counter": [counter_value]}
 
 
+@app.route('/compute', methods=['GET', 'POST'])
+def compute():
+    return
+
+
 if __name__ == "__main__":
     app.run(debug=True)

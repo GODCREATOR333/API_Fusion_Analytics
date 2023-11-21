@@ -7,18 +7,67 @@
   font-stretch: 75% 125%;
 }
 
-.mainscreen {
+.mainscreen-main{
+  display: flex;
+  overflow: hidden;
+}
+
+.leftside-main{
+  display: flex;
+  flex-direction: column;
+  background:#EEE2DE;
+  color: rgb(14, 35, 54);
+  position: relative;
+  width: 40%;
+  height: 100vh;
+  align-items: center;
+}
+
+.header-main{
+  display: flex;
+}
+
+
+.data_img{
+  height: 40%;
+  width: 70%;
+  margin-top: 10%;
+}
+
+.notes-btn{
+  width: auto;
+  padding: 10px 20px;
+  margin:10px;
+  border: none;
+  background-color: blue;
+  color: aliceblue;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rightside-main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     position: relative;
     background-color: #1C1427;
     color: #F1F0E8;
-    height: 100vh;
-    width: 100%;
+    width: 60%;
+    text-align: center;
   }
-  
+
+.rightside-main p {
+  position: relative;
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-bottom: 0%;
+  margin-bottom: 12%;
+}
+
+.rightside-main h1{
+  position: relative;
+  margin-top: 0;
+}
 .buttons {
   display: flex;
   justify-content: space-around;
@@ -33,6 +82,7 @@
   background-color: blue;
   color: aliceblue;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .submit_button{
@@ -43,17 +93,18 @@
   background-color: blue;
   color: aliceblue;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .selectors {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  
+  cursor: pointer;
 }
 
 .option_selector {
-  width: 45%; /* Adjust as needed */
+  width: 45%;
   padding: 10px;
   color: #fff;
   background-color: #555;
