@@ -49,6 +49,8 @@ function Mainscreen() {
 
     }, [])
 
+
+    const [apiData1, setapiData1] = useState([{}])
     const handleFetchRequestforAPI1 = () => {
 
         const params = {
@@ -62,21 +64,23 @@ function Mainscreen() {
 
         Axios.get(finalUrl)
             .then(response => {
-                setData({ counter: [response.data.counter] });
+                setapiData1(response.data.data1);
                 console.log(response.data);
+                sendToFlaskBackend(response.data, '/api1');
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     }
 
+    const [apiData2, setapiData2] = useState([{}])
     const handleFetchRequestforAPI2 = () => {
 
         const params = {
             api_token: "DDWEMDBmVzwaOHW8AWy5rLo88nCHIwpGClZEi98q",
-            symbols: "SPY",
-            sentiment_gte: 0,
-            sentiment_lte: 0
+            // symbols: "SPY",
+            // sentiment_gte: 0,
+            // sentiment_lte: 0
         }
 
         const queryString = new URLSearchParams(params).toString();
@@ -88,6 +92,7 @@ function Mainscreen() {
             .then(response => {
                 setData({ counter: [response.data.counter] });
                 console.log(response.data);
+                sendToFlaskBackend(response.data, '/api2');
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -96,8 +101,31 @@ function Mainscreen() {
         console.log(finalUrl)
     }
 
+    const sendToFlaskBackend = (dataToSend, endpoint) => {
+
+        const flaskEndpoint = `http://127.0.0.1:5000/${endpoint}`;
+
+        Axios.post(flaskEndpoint, dataToSend)
+            .then(response => {
+                console.log('Data sent to Flask:', response.data);
+            })
+            .catch(error => {
+                console.error('Error sending data to Flask:', error);
+            });
+    }
 
 
+    const [plot, setPlot] = useState('');
+
+    useEffect(() => {
+        fetch('http://localhost:5000/get_plot')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Received data:', data);
+                setPlot(data.plot);
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
 
 
     return (
@@ -106,8 +134,9 @@ function Mainscreen() {
             <div className='leftside-main'>
 
                 <h1>Analyse Computed Data</h1>
-                <img className='data_img' src='https://treehousetechgroup.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-28-at-10.13.28-AM.png'
-                    alt='data_img' />
+                <div>
+                    {plot && <img src={`data:image/png;base64,${plot}`} alt="Generated Plot" />}
+                </div>
 
                 <button className='notes-btn'>Collect Notes</button>
             </div>
@@ -115,7 +144,7 @@ function Mainscreen() {
 
             <div className='rightside-main'>
 
-                <p className='alert'> ⚠ This is a demo project. Therefore it contains only few apis and few of their respective
+                <p className='alert'> ⚠ This is a demo project. Therefore it contains only few API's and few of their respective
                     attributes. Read More from my <a href='https://haripreetham-portifolio.web.app'>Blog/Website</a>
                 </p>
 
@@ -144,7 +173,7 @@ function Mainscreen() {
                         onChange={(e) => setSelectedApi1(e.target.value)}
                     >
                         <option disabled value={''}>API-1</option>
-                        <option value={'https://www.alphavantage.co/query?function=INFLATION&apikey=demo'}>Inflation</option>
+                        <option value={'https://www.alphavantage.co/query?function=INFLATION&limit=50&time_from=20220410T0130&apikey=34KS36RMTITE8NTT'}>Inflation</option>
                         <option value={'finance-2'}>Finance-2</option>
                         <option value={'finance-3'}>Finance-3</option>
                     </select>
@@ -157,7 +186,7 @@ function Mainscreen() {
                     >
                         <option disabled value={''}>API-2</option>
                         <option value={'finance-1'}>Finance-1</option>
-                        <option value={'https://api.stockdata.org/v1/news/all'}>Sentiment Data</option>
+                        <option value={'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=financial_markets&limit=50&time_from=20220410T0130&apikey=34KS36RMTITE8NTT'}>Sentiment</option>
                         <option value={'finance-3'}>Finance-3</option>
                     </select>
                 </div>
